@@ -1,0 +1,300 @@
+:root {
+    --roxo: #AA8AF5;
+    --verde: #00c853;
+    --vermelho: #d50000;
+    --cinza: #f5f5f5;
+    --texto: #333;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--cinza);
+    color: var(--texto);
+    padding: 1.2rem;
+}
+
+header {
+    background-color: white;
+    padding: 1.2rem;
+    text-align: center;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgb(0 0 0 / 0.1);
+    margin-bottom: 1.5rem;
+}
+
+.titulo-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.7rem;
+}
+
+.titulo-header img {
+    width: 50px;
+    height: 50px;
+}
+
+.saldo {
+    background-color: var(--roxo);
+    color: white;
+    padding: 1.8rem;
+    border-radius: 12px;
+    margin-bottom: 1.8rem;
+    text-align: center;
+}
+
+.saldo h2 {
+    margin-bottom: 0.5rem;
+}
+
+.saldo p {
+    font-size: 2.3rem;
+    margin-bottom: 1rem;
+}
+
+.resumo {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.resumo span {
+    background-color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+}
+
+.receita {
+    color: var(--verde);
+}
+
+.despesa {
+    color: var(--vermelho);
+}
+
+.container-dashboard {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+}
+
+/* Quando a tela for menor que 767px, um em baixo do outro */
+@media (max-width: 767px) {
+    .container-dashboard {
+        flex-direction: column;
+    }
+}
+
+/* Quando maior que 767px, um ao lado do outro */
+@media (min-width: 768px) {
+    .container-dashboard .grafico-container,
+    .container-dashboard .transacoes-recentes {
+        flex: 1;
+    }
+}
+
+.titulo-grafico {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.titulo-grafico img {
+    display: flex;
+    margin-top: -8px;
+}
+
+.grafico-container {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 1rem;
+    background: white;
+    margin-bottom: 1.5rem;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.linha {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 0.8rem;
+}
+
+.categoria {
+    flex: 1;
+    min-width: 90px;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.barra {
+    background-color: #eee;
+    border-radius: 20px;
+    flex: 3;
+    height: 16px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.preenchimento {
+    height: 100%;
+    border-radius: 20px;
+    margin-left: auto;
+}
+
+.rosa { width: 28%; background-color: #ff6384; }
+.azul { width: 40%; background-color: #36a2eb; }
+.amarelo { width: 13%; background-color: #ffce56; }
+.verde { width: 12%; background-color: #4bc0c0; }
+.roxo { width: 7%; background-color: #9966ff; }
+
+.percentual {
+    width: 35px;
+    text-align: right;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.titulo-transacoes {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.titulo-transacoes img {
+    display: flex;
+    margin-top: -6px;
+}
+
+.transacoes-recentes {
+    background-color: white;
+    padding: 1.2rem;
+    border-radius: 12px;
+    border: 2px solid #C2B7B7;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+}
+
+.transacao {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--cinza);
+    padding: 0.9rem;
+    border-radius: 8px;
+    margin-bottom: 0.7rem;
+}
+
+.transacao .info {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.transacao .valor {
+    font-weight: bold;
+}
+
+.transacao.receita .valor {
+    color: var(--verde);
+}
+
+.transacao.despesa .valor {
+    color: var(--vermelho);
+}
+
+.transacao.receita .info div:first-child {
+    color: var(--verde);
+}
+
+.transacao.despesa .info div:first-child {
+    color: var(--vermelho);
+}
+
+.navbar.fixed-bottom {
+    border: 1px solid #D2D1D1;
+    border-radius: 20px;
+    width: 95%;
+    height: 15%;
+    margin: 0 auto 20px;
+    background: #fff;
+    padding: 10px 20px;
+    box-shadow: 0 4px 14px rgb(0 0 0 / 0.1);
+}
+
+/* --- ESTILOS DO MODAL --- */
+
+.modal-container {
+    display: none; /* Escondido por padrão */
+    position: fixed; /* Fica sobre todo o conteúdo */
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6); /* Fundo preto semi-transparente */
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: auto;
+    padding: 2rem;
+    border-radius: 12px; /* Mesma borda do card de saldo */
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 0.3s;
+}
+
+.modal-content h2 {
+    color: var(--roxo); /* Usando a cor roxa principal */
+    margin-bottom: 1rem;
+}
+
+.modal-content p {
+    font-size: 1rem;
+    color: var(--texto);
+}
+
+.close-button {
+    color: #aaa;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #333;
+    text-decoration: none;
+}
+
+/* Animação simples para o modal aparecer */
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
